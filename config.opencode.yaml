@@ -1,0 +1,10 @@
+#ddev-generated
+web_extra_daemons:
+    - name: "opencode"
+      command: "$HOME/.opencode/bin/opencode serve --port=4096 --hostname=0.0.0.0"
+      directory: /var/www/html
+web_extra_exposed_ports:
+    - name: opencode
+      container_port: 4096
+      http_port: 4097
+      https_port: 4096

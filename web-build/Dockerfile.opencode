@@ -1,0 +1,8 @@
+#ddev-generated
+
+# Switch to the ddev user because OpenCode wants to install to home and run as non-root user.
+USER "$username"
+# Install opencode with the same user that ddev manages the files with.
+RUN curl -fsSL https://opencode.ai/install | bash
+# Switch back to the docker user.
+USER "root"
