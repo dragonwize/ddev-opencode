@@ -2,6 +2,8 @@ name: opencode
 
 project_files:
   - commands/web/opencode
+  - commands/web/opencode-serve
   - web-build/Dockerfile.opencode
+  - config.opencode.yaml
 
 ddev_version_constraint: '>= v1.24.3'

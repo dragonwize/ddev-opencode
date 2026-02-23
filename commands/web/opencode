@@ -6,8 +6,4 @@
 ## Example: ddev opencode
 ## MutagenSync: true
 
-# Check if opencode is installed on the host.
-
-# Check for version match and offer advice.
-
-opencode attach "${DDEV_PRIMARY_URL_WITHOUT_PORT}:4096"
+~/.opencode/bin/opencode

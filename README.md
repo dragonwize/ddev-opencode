@@ -3,7 +3,7 @@
 [![last commit](https://img.shields.io/github/last-commit/dragonwize/ddev-opencode)](https://github.com/dragonwize/ddev-opencode/commits)
 [![release](https://img.shields.io/github/v/release/dragonwize/ddev-opencode)](https://github.com/dragonwize/ddev-opencode/releases/latest)
 
-# DDEV Opencode
+# DDEV OpenCode
 
 ## Overview
 
@@ -20,28 +20,28 @@ After installation, make sure to commit the `.ddev` directory to version control
 
 ## Usage
 
-| Command | Description |
-| ------- | ----------- |
-| `ddev describe` | View service status and used ports for Opencode |
-| `ddev logs -s opencode` | Check Opencode logs |
+| Command               | Description                                                                                   |
+|-----------------------|-----------------------------------------------------------------------------------------------|
+| `ddev opencode`       | Start OpenCode in the container.                                                              |
+| `ddev opencode-serve` | Start OpenCode server. Then connect to it from outside with `opencode attach <DDEV URL>:4096. |
 
-## Advanced Customization
+## Update OpenCode
 
-To change the Docker image:
+OpenCode has new versions very frequently. Since the install is cached in the 
+Docker container for faster startups, a container rebuild is needed to pull the
+latest version.
 
 ```bash
-ddev dotenv set .ddev/.env.opencode --opencode-docker-image="ddev/ddev-utilities:latest"
 ddev add-on get dragonwize/ddev-opencode
-ddev restart
+ddev restart --no-cache
 ```
 
-Make sure to commit the `.ddev/.env.opencode` file to version control.
+If you want to update quickly, knowing it will not keep on restart:
+(Useful to check the new version before saving in your docker container)
 
-All customization options (use with caution):
-
-| Variable | Flag | Default |
-| -------- | ---- | ------- |
-| `OPENCODE_DOCKER_IMAGE` | `--opencode-docker-image` | `ddev/ddev-utilities:latest` |
+```bash
+ddev opencode upgrade
+```
 
 ## Credits
 
